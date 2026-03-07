@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dimensiones de la Calidad</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
@@ -16,10 +17,12 @@
 text-align:center;
 }
 
-img{
-max-width:70%;
+.reveal section img{
+max-width:65%;
+height:auto;
 display:block;
 margin:auto;
+border-radius:10px;
 }
 
 .contenedor{
@@ -27,12 +30,13 @@ display:flex;
 align-items:center;
 justify-content:center;
 gap:40px;
+flex-wrap:wrap;
 }
 
 .texto{
-max-width:400px;
+max-width:420px;
 text-align:left;
-font-size:0.8em;
+font-size:0.85em;
 }
 
 </style>
@@ -49,8 +53,8 @@ font-size:0.8em;
 
 <h2>Dimensiones de la Calidad</h2>
 
-<img src="/auto-calidad.jpg" width="400">
-  
+<img src="auto-calidad.jpg" class="fragment fade-in">
+
 <p>Ejemplo aplicado a un vehículo</p>
 
 </section>
@@ -63,7 +67,7 @@ font-size:0.8em;
 
 <div class="contenedor">
 
-<img src="cliente-con-auto.jpg">
+<img src="cliente-con-auto.jpg" class="fragment fade-in">
 
 <div class="texto">
 
@@ -72,10 +76,10 @@ font-size:0.8em;
 <p>En un vehículo depende de:</p>
 
 <ul>
-<li>Producto</li>
-<li>Proceso</li>
-<li>Sistema</li>
-<li>Organización</li>
+<li class="fragment">Producto</li>
+<li class="fragment">Proceso</li>
+<li class="fragment">Sistema</li>
+<li class="fragment">Organización</li>
 </ul>
 
 </div>
@@ -91,18 +95,18 @@ font-size:0.8em;
 
 <div class="contenedor">
 
-<img src="auto-detalles.jpg">
+<img src="auto-detalles.jpg" class="fragment fade-in">
 
 <div class="texto">
 
 <ul>
-<li>Seguridad</li>
-<li>Consumo de combustible</li>
-<li>Durabilidad</li>
-<li>Comodidad</li>
+<li class="fragment">Seguridad</li>
+<li class="fragment">Consumo de combustible</li>
+<li class="fragment">Durabilidad</li>
+<li class="fragment">Comodidad</li>
 </ul>
 
-<p>El cliente evalúa directamente estas características.</p>
+<p class="fragment">El cliente evalúa directamente estas características.</p>
 
 </div>
 
@@ -118,16 +122,16 @@ font-size:0.8em;
 
 <div class="contenedor">
 
-<img src="linea-ensamblaje.jpg">
+<img src="linea-ensamblaje.jpg" class="fragment fade-in">
 
 <div class="texto">
 
-<p>Se refiere a cómo se fabrica el vehículo.</p>
+<p class="fragment">Se refiere a cómo se fabrica el vehículo.</p>
 
 <ul>
-<li>Control de calidad</li>
-<li>Precisión del ensamblaje</li>
-<li>Estandarización</li>
+<li class="fragment">Control de calidad</li>
+<li class="fragment">Precisión del ensamblaje</li>
+<li class="fragment">Estandarización</li>
 </ul>
 
 </div>
@@ -144,16 +148,16 @@ font-size:0.8em;
 
 <div class="contenedor">
 
-<img src="sistema-produccion.jpg">
+<img src="sistema-produccion.jpg" class="fragment fade-in">
 
 <div class="texto">
 
-<p>Integra todos los procesos de la empresa.</p>
+<p class="fragment">Integra todos los procesos de la empresa.</p>
 
 <ul>
-<li>Proveedores</li>
-<li>Logística</li>
-<li>Gestión de producción</li>
+<li class="fragment">Proveedores</li>
+<li class="fragment">Logística</li>
+<li class="fragment">Gestión de producción</li>
 </ul>
 
 </div>
@@ -170,16 +174,16 @@ font-size:0.8em;
 
 <div class="contenedor">
 
-<img src="equipo-ingenieros.jpg">
+<img src="equipo-ingenieros.jpg" class="fragment fade-in">
 
 <div class="texto">
 
-<p>Depende de la cultura y gestión empresarial.</p>
+<p class="fragment">Depende de la cultura y gestión empresarial.</p>
 
 <ul>
-<li>Capacitación</li>
-<li>Innovación</li>
-<li>Mejora continua</li>
+<li class="fragment">Capacitación</li>
+<li class="fragment">Innovación</li>
+<li class="fragment">Mejora continua</li>
 </ul>
 
 </div>
@@ -194,9 +198,9 @@ font-size:0.8em;
 
 <h2>Conclusión</h2>
 
-<img src="auto-final.jpg">
+<img src="auto-final.jpg" class="fragment fade-in">
 
-<p>La calidad final de un vehículo depende de la interacción entre producto, proceso, sistema y organización.</p>
+<p class="fragment">La calidad final de un vehículo depende de la interacción entre producto, proceso, sistema y organización.</p>
 
 </section>
 
@@ -208,7 +212,10 @@ font-size:0.8em;
 <script>
 
 Reveal.initialize({
-transition:'slide'
+transition:'slide',
+controls:true,
+progress:true,
+center:true
 });
 
 </script>
