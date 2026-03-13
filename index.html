@@ -1,224 +1,360 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dimensiones de la Calidad</title>
+  <title>Dimensiones de la Calidad</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/sky.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/sky.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
-<style>
+  <style>
+    /* ==========================
+       Ajuste general de todas las slides
+    ========================== */
+    .reveal .slides section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* fuerza que el contenido vaya hacia arriba */
+      padding-top: 10px;           /* espacio mínimo desde el borde superior */
+    }
 
-.reveal section{
-text-align:center;
+    .reveal .slides section h2 {
+      text-align: center;
+      margin-top: 0;        /* título pegado arriba */
+      margin-bottom: 10px;  /* espacio pequeño debajo */
+      white-space: nowrap;
+    }
+
+    /* ==========================
+       Portada
+    ========================== */
+    .slide-portada .contenedor-portada {
+      position: relative;
+      width: 100%;
+    }
+
+    .slide-portada .imagen-portada {
+      width: auto;
+      height: 75vh;
+      border-radius: 10px;
+    }
+
+    .slide-portada .texto-portada {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      color: black;
+      font-size: 0.9em;
+    }
+
+    /* ==========================
+       Conclusión
+    ========================== */
+    .slide-conclusion {
+      text-align: left;
+    }
+
+    .contenedor-conclusion {
+      position: relative;
+      width: 100%;
+    }
+
+    .contenedor-conclusion img {
+      width: 70%;    /* más ancho */
+      height: auto;  /* mantiene proporción */
+      border-radius: 10px;
+    }
+
+    .texto-conclusion {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      max-width: 320px;
+      color: white;
+      font-size: 0.9em;
+      line-height: 1.35em;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 18px 20px;
+      border-radius: 8px;
+    }
+
+    /* ==========================
+       Contenedores de contenido
+    ========================== */
+    .contenedor {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
+    .contenedor img {
+      flex-shrink: 0;
+      width: auto;
+      height: 60vh;
+      max-height: 70vh;
+      border-radius: 10px;
+    }
+
+    .texto {
+      width: 100%;
+      min-width: 450px;
+      text-align: left;
+      font-size: 0.8em;
+      line-height: 1.4em;
+    }
+
+    /* ==========================
+       Listas y fragmentos
+    ========================== */
+    ul {
+      padding-left: 1.2em;
+    }
+
+    li.fragment {
+      margin-bottom: 0.3em;
+    }
+
+    /* ==========================
+       Íconos FontAwesome en títulos
+    ========================== */
+    section h2 i {
+      margin-right: 0.5em;
+      color: #444;
+    }
+
+/* ==========================
+   Navegación estilo app móvil
+========================== */
+
+.reveal .controls{
+  bottom: 25px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
 }
 
-.reveal section img{
-max-width:65%;
-height:auto;
-display:block;
-margin:auto;
-border-radius:10px;
+/* ocultar arriba y abajo si no los usas */
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-down{
+  display:none;
 }
 
-.contenedor{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
+.reveal .controls button{
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+
+  width:70px;
+  height:70px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+
+  transition: all 0.25s ease;
 }
 
-.texto{
-max-width:420px;
-text-align:left;
-font-size:0.85em;
+/* iconos */
+.reveal .controls button svg{
+  width:30px;
+  height:30px;
+  color:#333;
 }
 
-</style>
+/* hover tipo app */
+.reveal .controls button:hover{
+  background:#1a73e8;
+  transform:scale(1.15);
+}
+
+.reveal .controls button:hover svg{
+  color:white;
+}
+
+/* efecto click */
+.reveal .controls button:active{
+  transform:scale(0.95);
+}
+
+    /* ==========================
+       Responsivo
+    ========================== */
+    @media (max-width: 1200px) {
+      .contenedor {
+        gap: 20px;
+      }
+
+      .contenedor img {
+        height: 50vh;
+      }
+
+      .texto {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contenedor img {
+        height: 40vh;
+        margin-bottom: 15px;
+      }
+
+      .texto {
+        width: 90%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="reveal">
-<div class="slides">
-
-<!-- PORTADA -->
-
-<section>
-
-<h2>Dimensiones de la Calidad</h2>
-
-<img src="auto-calidad.jpg" class="fragment fade-in">
-
-<p>Ejemplo aplicado a un vehículo</p>
-
-</section>
-
-<!-- INTRODUCCION -->
-
-<section>
-
-<h2>¿Qué es calidad?</h2>
-
-<div class="contenedor">
-
-<img src="cliente-con-auto.png" class="fragment fade-in">
-
-<div class="texto">
-
-<p>La calidad es el grado en que un producto satisface las necesidades del cliente.</p>
-
-<p>En un vehículo depende de:</p>
-
-<ul>
-<li class="fragment">Producto</li>
-<li class="fragment">Proceso</li>
-<li class="fragment">Sistema</li>
-<li class="fragment">Organización</li>
-</ul>
-
-</div>
-</div>
-
-</section>
-
-<!-- PRODUCTO -->
-
-<section>
-
-<h2><i class="fas fa-car"></i> Calidad del Producto</h2>
-
-<div class="contenedor">
-
-<img src="auto-detalles.png" class="fragment fade-in">
-
-<div class="texto">
-
-<ul>
-<li class="fragment">Seguridad</li>
-<li class="fragment">Consumo de combustible</li>
-<li class="fragment">Durabilidad</li>
-<li class="fragment">Comodidad</li>
-</ul>
-
-<p class="fragment">El cliente evalúa directamente estas características.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PROCESO -->
-
-<section>
-
-<h2><i class="fas fa-industry"></i> Calidad del Proceso</h2>
-
-<div class="contenedor">
-
-<img src="linea-ensamblaje.png" class="fragment fade-in">
-
-<div class="texto">
-
-<p class="fragment">Se refiere a cómo se fabrica el vehículo.</p>
-
-<ul>
-<li class="fragment">Control de calidad</li>
-<li class="fragment">Precisión del ensamblaje</li>
-<li class="fragment">Estandarización</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SISTEMA -->
-
-<section>
-
-<h2><i class="fas fa-cogs"></i> Calidad del Sistema</h2>
-
-<div class="contenedor">
-
-<img src="sistema-produccion.png" class="fragment fade-in">
-
-<div class="texto">
-
-<p class="fragment">Integra todos los procesos de la empresa.</p>
-
-<ul>
-<li class="fragment">Proveedores</li>
-<li class="fragment">Logística</li>
-<li class="fragment">Gestión de producción</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ORGANIZACION -->
-
-<section>
-
-<h2><i class="fas fa-users"></i> Calidad de la Organización</h2>
-
-<div class="contenedor">
-
-<img src="equipo-ingenieros.png" class="fragment fade-in">
-
-<div class="texto">
-
-<p class="fragment">Depende de la cultura y gestión empresarial.</p>
-
-<ul>
-<li class="fragment">Capacitación</li>
-<li class="fragment">Innovación</li>
-<li class="fragment">Mejora continua</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONCLUSION -->
-
-<section>
-
-<h2>Conclusión</h2>
-
-<img src="auto-final.png" class="fragment fade-in">
-
-<p class="fragment">La calidad final de un vehículo depende de la interacción entre producto, proceso, sistema y organización.</p>
-
-</section>
-
-</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
-
-<script>
-
-Reveal.initialize({
-transition:'slide',
-controls:true,
-progress:true,
-center:true
-});
-
-</script>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- PORTADA -->
+      <section class="slide-portada">
+        <h2>Dimensiones de la Calidad</h2>
+        <div class="contenedor-portada">
+          <img src="auto-calidad.jpg" class="imagen-portada" alt="Auto de calidad" title="Auto de calidad">
+          <p class="texto-portada">Ejemplo aplicado a un vehículo</p>
+        </div>
+      </section>
+
+      <!-- INTRODUCCIÓN -->
+      <section>
+        <h2>¿Qué es calidad?</h2>
+        <div class="contenedor">
+          <img src="cliente-con-auto.png" alt="Cliente complacido" title="Cliente complacido">
+          <div class="texto">
+            <p>La calidad es el grado en que un producto satisface las necesidades del cliente.</p>
+            <p>En un vehículo depende de:</p>
+            <ul>
+              <li class="fragment">Producto</li>
+              <li class="fragment">Proceso</li>
+              <li class="fragment">Sistema</li>
+              <li class="fragment">Organización</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTO -->
+      <section>
+        <h2><i class="fas fa-car"></i> Calidad del Producto</h2>
+        <div class="contenedor">
+          <img src="auto-detalles.png" alt="Interior del vehículo" title="Interior del vehículo">
+          <div class="texto">
+            <ul>
+              <li class="fragment">Seguridad</li>
+              <li class="fragment">Consumo de combustible</li>
+              <li class="fragment">Durabilidad</li>
+              <li class="fragment">Comodidad</li>
+            </ul>
+            <p class="fragment">El cliente evalúa directamente estas características.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESO -->
+      <section>
+        <h2><i class="fas fa-industry"></i> Calidad del Proceso</h2>
+        <div class="contenedor">
+          <img src="linea-ensamblaje.png" alt="Línea de ensamblaje" title="Línea de ensamblaje">
+          <div class="texto">
+            <p class="fragment">Se refiere a cómo se fabrica el vehículo.</p>
+            <ul>
+              <li class="fragment">Control de calidad</li>
+              <li class="fragment">Precisión del ensamblaje</li>
+              <li class="fragment">Estandarización</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SISTEMA -->
+      <section>
+        <h2><i class="fas fa-cogs"></i> Calidad del Sistema</h2>
+        <div class="contenedor">
+          <img src="sistema-produccion.png" alt="Sistema de producción" title="Sistema de producción">
+          <div class="texto">
+            <p class="fragment">Integra todos los procesos de la empresa.</p>
+            <ul>
+              <li class="fragment">Proveedores</li>
+              <li class="fragment">Logística</li>
+              <li class="fragment">Gestión de producción</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORGANIZACIÓN -->
+      <section>
+        <h2><i class="fas fa-users"></i> Calidad de la Organización</h2>
+        <div class="contenedor">
+          <img src="equipo-ingenieros.png" alt="Equipo de ingenieros" title="Equipo de ingenieros">
+          <div class="texto">
+            <p class="fragment">Depende de la cultura y gestión empresarial.</p>
+            <ul>
+              <li class="fragment">Capacitación</li>
+              <li class="fragment">Innovación</li>
+              <li class="fragment">Mejora continua</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONCLUSIÓN -->
+      <section class="slide-conclusion">
+        <h2>Conclusión</h2>
+        <div class="contenedor-conclusion">
+          <img src="auto-final.png" alt="Auto final" title="Auto final">
+          <p class="texto-conclusion fragment">
+            La calidad final de un vehículo depende de la interacción entre producto,
+            proceso, sistema y organización.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+  <script>
+    Reveal.initialize({
+      width: "96%",
+      height: "100%",
+      margin: 0.02,
+      minScale: 1,
+      maxScale: 1,
+      transition: 'slide',
+      transitionSpeed: 'slow',
+      controls: true,
+      progress: true,
+      center: true
+    });
+  </script>
 
 </body>
+
 </html>
