@@ -12,149 +12,164 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
-  <style>
-    /* ==========================
-       Ajuste general de todas las slides
-    ========================== */
-    .reveal .slides section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start; /* fuerza que el contenido vaya hacia arriba */
-      padding-top: 10px;           /* espacio mínimo desde el borde superior */
-    }
-
-    .reveal .slides section h2 {
-      text-align: center;
-      margin-top: 0;        /* título pegado arriba */
-      margin-bottom: 10px;  /* espacio pequeño debajo */
-      white-space: nowrap;
-    }
-
-    /* ==========================
-       Portada
-    ========================== */
-    .slide-portada .contenedor-portada {
-      position: relative;
-      width: 100%;
-    }
-
-    .slide-portada .imagen-portada {
-      width: auto;
-      height: 75vh;
-      border-radius: 10px;
-    }
-
-    .slide-portada .texto-portada {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px 0;
-      text-align: center;
-      color: black;
-      font-size: 0.9em;
-    }
-
-    /* ==========================
-       Conclusión
-    ========================== */
-    .slide-conclusion {
-      text-align: left;
-    }
-
-    .contenedor-conclusion {
-      position: relative;
-      width: 100%;
-    }
-
-    .contenedor-conclusion img {
-      width: 70%;    /* más ancho */
-      height: auto;  /* mantiene proporción */
-      border-radius: 10px;
-    }
-
-    .texto-conclusion {
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      max-width: 320px;
-      color: white;
-      font-size: 0.9em;
-      line-height: 1.35em;
-      background: rgba(0, 0, 0, 0.45);
-      padding: 18px 20px;
-      border-radius: 8px;
-    }
-
-    /* ==========================
-       Contenedores de contenido
-    ========================== */
-    .contenedor {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 20px;
-      flex-wrap: nowrap;
-    }
-
-    .contenedor img {
-      flex-shrink: 0;
-      width: auto;
-      height: 60vh;
-      max-height: 70vh;
-      border-radius: 10px;
-    }
-
-    .texto {
-      width: 100%;
-      min-width: 450px;
-      text-align: left;
-      font-size: 0.8em;
-      line-height: 1.4em;
-    }
-
-    /* ==========================
-       Listas y fragmentos
-    ========================== */
-    ul {
-      padding-left: 1.2em;
-    }
-
-    li.fragment {
-      margin-bottom: 0.3em;
-    }
-
-    /* ==========================
-       Íconos FontAwesome en títulos
-    ========================== */
-    section h2 i {
-      margin-right: 0.5em;
-      color: #444;
-    }
+<style>
 
 /* ==========================
-   Navegación estilo app móvil
+   Ajuste general de slides
+========================== */
+
+.reveal .slides section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding-top:10px;
+  height:100%;
+}
+
+.reveal .slides section h2{
+  text-align:center;
+  margin-top:0;
+  margin-bottom:10px;
+  white-space:nowrap;
+}
+
+
+/* ==========================
+   Portada
+========================== */
+
+.slide-portada .contenedor-portada{
+  position:relative;
+  width:100%;
+}
+
+.slide-portada .imagen-portada{
+  max-height:500px;
+  width:auto;
+  border-radius:10px;
+}
+
+.slide-portada .texto-portada{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:10px 0;
+  text-align:center;
+  color:black;
+  font-size:0.9em;
+}
+
+
+/* ==========================
+   Conclusión
+========================== */
+
+.slide-conclusion{
+  text-align:left;
+}
+
+.contenedor-conclusion{
+  position:relative;
+  width:100%;
+}
+
+.contenedor-conclusion img{
+  width:70%;
+  max-height:500px;
+  border-radius:10px;
+}
+
+.texto-conclusion{
+  position:absolute;
+  top:40px;
+  right:40px;
+  max-width:320px;
+
+  color:white;
+  font-size:0.9em;
+  line-height:1.35em;
+
+  background:rgba(0,0,0,0.45);
+  padding:18px 20px;
+  border-radius:8px;
+}
+
+
+/* ==========================
+   Contenedores de contenido
+========================== */
+
+.contenedor{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.contenedor img{
+  flex-shrink:0;
+  max-height:420px;
+  width:auto;
+  border-radius:10px;
+}
+
+.texto{
+  flex:1;
+  max-width:600px;
+
+  text-align:left;
+  font-size:0.8em;
+  line-height:1.4em;
+}
+
+
+/* ==========================
+   Listas
+========================== */
+
+ul{
+  padding-left:1.2em;
+}
+
+li.fragment{
+  margin-bottom:0.3em;
+}
+
+
+/* ==========================
+   Iconos FontAwesome
+========================== */
+
+section h2 i{
+  margin-right:0.5em;
+  color:#444;
+}
+
+
+/* ==========================
+   Navegación estilo app
 ========================== */
 
 .reveal .controls{
-  bottom: 25px;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
+  bottom:25px;
+  left:50%;
+  right:auto;
+  transform:translateX(-50%);
+  display:flex;
+  gap:20px;
 }
 
-/* ocultar arriba y abajo si no los usas */
 .reveal .controls .navigate-up,
 .reveal .controls .navigate-down{
   display:none;
 }
 
 .reveal .controls button{
-  background: rgba(255,255,255,0.9);
-  border-radius: 50%;
+  background:rgba(127,255,255,0.9);
+  border-radius:50%;
 
   width:70px;
   height:70px;
@@ -165,17 +180,15 @@
 
   box-shadow:0 6px 18px rgba(0,0,0,0.25);
 
-  transition: all 0.25s ease;
+  transition:all 0.25s ease;
 }
 
-/* iconos */
 .reveal .controls button svg{
   width:30px;
   height:30px;
   color:#333;
 }
 
-/* hover tipo app */
 .reveal .controls button:hover{
   background:#1a73e8;
   transform:scale(1.15);
@@ -185,45 +198,48 @@
   color:white;
 }
 
-/* efecto click */
 .reveal .controls button:active{
   transform:scale(0.95);
 }
 
-    /* ==========================
-       Responsivo
-    ========================== */
-    @media (max-width: 1200px) {
-      .contenedor {
-        gap: 20px;
-      }
 
-      .contenedor img {
-        height: 50vh;
-      }
+/* ==========================
+   Responsive
+========================== */
 
-      .texto {
-        width: 45%;
-      }
-    }
+@media (max-width:1200px){
 
-    @media (max-width: 768px) {
-      .contenedor {
-        flex-direction: column;
-        align-items: center;
-      }
+  .contenedor img{
+    max-height:360px;
+  }
 
-      .contenedor img {
-        height: 40vh;
-        margin-bottom: 15px;
-      }
+  .texto{
+    max-width:500px;
+  }
 
-      .texto {
-        width: 90%;
-        text-align: center;
-      }
-    }
-  </style>
+}
+
+@media (max-width:768px){
+
+  .contenedor{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .contenedor img{
+    max-height:300px;
+    margin-bottom:15px;
+  }
+
+  .texto{
+    max-width:90%;
+    text-align:center;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -264,6 +280,7 @@
         <div class="contenedor">
           <img src="auto-detalles.png" alt="Interior del vehículo" title="Interior del vehículo">
           <div class="texto">
+            <p></p>
             <ul>
               <li class="fragment">Seguridad</li>
               <li class="fragment">Consumo de combustible</li>
@@ -342,18 +359,18 @@
 
   <script>
     Reveal.initialize({
-      width: "96%",
-      height: "100%",
-      margin: 0.02,
-      minScale: 1,
-      maxScale: 1,
-      transition: 'slide',
-      transitionSpeed: 'slow',
-      controls: true,
-      progress: true,
-      center: true
+      width:1280,
+      height:720,
+      margin:0.04,
+      minScale:0.2,
+      maxScale:1.5,
+      transition:'slide',
+      transitionSpeed:'slow',
+      controls:true,
+      progress:true,
+      center:false
     });
-  </script>
+  </script>          
 
 </body>
 
